@@ -294,6 +294,7 @@ public class ClearReg {
            sparkSession.sql("select count(*) from union1").show();
            sparkSession.sql("select distinct count(*) from union1").show();
         */
+        //sparkSession.read().csv()
         sparkSession.stop();
     }
 }
