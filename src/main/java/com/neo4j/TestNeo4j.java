@@ -127,15 +127,18 @@ public class TestNeo4j {
         }).repartition(1).saveAsTextFile("file:///home/guo");
         */
 
-        sparkSession.read().csv("file:///home/union6/union6.csv").registerTempTable("union6");
-        sparkSession.sql("select distinct * from union6").registerTempTable("union6");
+        sparkSession.read().csv("file:///home/union7/union7.csv").registerTempTable("union6");
+        //sparkSession.sql("select distinct * from union7").registerTempTable("union6");
         Dataset<Row>dataset=sparkSession.sql("select * from union6");
+        //dataset.repartition(1).write().csv("file:///home/union7");
+
         Properties properties=new Properties();
         properties.setProperty("user","root");
         properties.setProperty("password","1234567");
         properties.setProperty("driver","com.mysql.cj.jdbc.Driver");
 
         dataset.write().jdbc("jdbc:mysql://10.168.7.231:3306/spark?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT","enter",properties);
+
         sparkSession.stop();
     }
 }
