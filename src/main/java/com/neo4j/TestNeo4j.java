@@ -126,7 +126,6 @@ public class TestNeo4j {
             return str;
         }).repartition(1).saveAsTextFile("file:///home/guo");
         */
-
         sparkSession.read().csv("file:///home/union7.csv").registerTempTable("union6");
         //sparkSession.sql("select distinct * from union7").registerTempTable("union6");
         Dataset<Row>dataset=sparkSession.sql("select * from union6");
