@@ -37,8 +37,8 @@ public class ClearBelong {
 
         //sparkSession.read().csv("file:///home/Error/part-00000-c2fea592-ecdc-490e-840e-fdf14791c4c6.csv").registerTempTable("error");
         //sparkSession.sql("select count(1) from error").show();
-        /*
-        sparkSession.read().csv("file:///home/s.csv").registerTempTable("s");
+
+        sparkSession.read().csv("file:///home/sun/Documents/domain.csv").registerTempTable("s");
         Dataset<Row>dataset=sparkSession.sql("select * from s");
         JavaRDD<Row>javaRDD=dataset.javaRDD();
         javaRDD.map((Function<Row,String>) revord ->{
@@ -89,7 +89,7 @@ public class ClearBelong {
                 }
                 return Re;
                 }).repartition(1).saveAsTextFile("file:///home/type");
-                 */
+
             //sparkSession.read().csv("file:///home/enterprise_econkind.csv").registerTempTable("econkind");
            // sparkSession.read().csv("file:///home/type.csv").registerTempTable("type");
             //Dataset<Row>dataset=sparkSession.sql("select * from econkind");
@@ -128,11 +128,12 @@ public class ClearBelong {
         //Dataset<Row>dataset=sparkSession.sql("select count(address._c0) from  address ");
         //dataset.show();
         //System.out.println(dataset.count());
-        sparkSession.read().csv("file:///home/reg_no.csv").registerTempTable("reg");
+
+       // sparkSession.read().csv("file:///home/reg_no.csv").registerTempTable("reg");
        // Dataset<Row>dataset=sparkSession.sql("select count(1) from reg");
-       sparkSession.sql("select count(length(reg._c0)) as _c1,length(reg._c0)as _c2 from reg group by length(reg._c0)").registerTempTable("aa");
-       Dataset<Row>dataset=sparkSession.sql("select sum(_c1) from aa");
-       dataset.show(1000);
+       //sparkSession.sql("select count(length(reg._c0)) as _c1,length(reg._c0)as _c2 from reg group by length(reg._c0)").registerTempTable("aa");
+      // Dataset<Row>dataset=sparkSession.sql("select sum(_c1) from aa");
+       //dataset.show(1000);
         //System.out.println(dataset.count());
         //sparkSession.read().csv("")
         sparkSession.stop();
