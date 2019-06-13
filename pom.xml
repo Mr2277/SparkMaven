@@ -95,7 +95,7 @@
                 <!-- MainClass in mainfest make a executable jar -->
                 <archive>
                     <manifest>
-                        <mainClass>com.test.FWG</mainClass>
+                        <mainClass>com.clear.liu</mainClass>
                     </manifest>
                 </archive>
 
