@@ -10,8 +10,9 @@ public class liu {
     public static void main(String[] args) {
         SparkConf sparkConf = new SparkConf().setAppName("ClearBelong");
         SparkSession sparkSession = SparkSession.builder().config(sparkConf).getOrCreate();
-        sparkSession.read().csv("file:///home/sun/Documents/sale.txt").registerTempTable("f");
-
+        sparkSession.read().csv("file:///media/sun/Samsung_T5/dataFromSZ20190621/db_enterprise_t_change_records").registerTempTable("f");
+        sparkSession.sql("select * from f").show();
+          /*
       //  sparkSession.read().csv("file:///home/sun/Documents/ENTERPRISE_REF.csv").registerTempTable("f");
         Dataset<Row> dataset=sparkSession.sql("select * from f");
         Properties properties=new Properties();
@@ -23,6 +24,7 @@ public class liu {
       //  dataset.write().jdbc("jdbc:mysql://10.168.7.245:3306/business_data_db?useUnicode=true&characterEncoding=utf-8","ename_status",properties);
 
        // sparkSession.read().text("file:");
+       */
         sparkSession.stop();
     }
 }
