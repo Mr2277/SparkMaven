@@ -10,21 +10,20 @@ public class liu {
     public static void main(String[] args) {
         SparkConf sparkConf = new SparkConf().setAppName("ClearBelong");
         SparkSession sparkSession = SparkSession.builder().config(sparkConf).getOrCreate();
-        sparkSession.read().csv("file:///media/sun/Samsung_T5/dataFromSZ20190621/db_enterprise_t_change_records").registerTempTable("f");
-        sparkSession.sql("select * from f").show();
-          /*
-      //  sparkSession.read().csv("file:///home/sun/Documents/ENTERPRISE_REF.csv").registerTempTable("f");
-        Dataset<Row> dataset=sparkSession.sql("select * from f");
+        sparkSession.read().option("multiLine", true).csv("file:///media/sun/Samsung_T5/dataFromSZ20190621/db_enterprise_t_change_records").registerTempTable("f");
+        Dataset<Row> dataset= sparkSession.sql("select * from f ");
+
+
         Properties properties=new Properties();
         properties.setProperty("user","root");
-        properties.setProperty("password","1234567");
+        properties.setProperty("password","zhirong123");
         properties.setProperty("driver","com.mysql.jdbc.Driver");
         //properties.setProperty("driver","com.mysql.jdbc.Driver");
-         dataset.write().jdbc("jdbc:mysql://127.0.0.1:3306/mall?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT","sale",properties);
+         dataset.write().jdbc("jdbc:mysql://192.168.194.4:3306/F_CL_ENTERPRISE_DB?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT","db_enterprise_t_change_records",properties);
       //  dataset.write().jdbc("jdbc:mysql://10.168.7.245:3306/business_data_db?useUnicode=true&characterEncoding=utf-8","ename_status",properties);
 
        // sparkSession.read().text("file:");
-       */
+
         sparkSession.stop();
     }
 }
