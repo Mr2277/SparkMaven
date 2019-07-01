@@ -64,11 +64,11 @@ public class ThreadPoolManager {
     /*
      * 创建一个调度线程池
      */
-    private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+   // private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 
     /*
      * 通过调度线程周期性的执行缓冲队列中任务
-     */
+
     protected final ScheduledFuture<?> mTaskHandler = scheduler.scheduleAtFixedRate(mAccessBufferThread, 0,
             PERIOD_TASK_QOS, TimeUnit.MILLISECONDS);
 
