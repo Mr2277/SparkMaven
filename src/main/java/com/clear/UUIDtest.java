@@ -15,6 +15,7 @@ public class UUIDtest {
       String result="";
       if(!"".equals(str))
       */
+        System.out.println(str.contains("银行") );
         System.out.println(str.length());
 
 
